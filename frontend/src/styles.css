@@ -1,0 +1,139 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top, #f4b645 0%, #f2942f 35%, #0b1236 100%);
+  color: #f9f3df;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 2px solid rgba(255, 223, 79, 0.75);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.hero {
+  text-align: center;
+  padding: 18px 0 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 24px;
+}
+
+.logo {
+  display: inline-block;
+  letter-spacing: 0.16em;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffc94d;
+  text-shadow: 0 0 12px rgba(255, 196, 58, 0.8);
+}
+
+h1 {
+  font-size: clamp(2rem, 2.4vw, 3rem);
+  margin: 0;
+  color: #fff5d2;
+}
+
+.hero p {
+  margin: 12px auto 0;
+  max-width: 520px;
+  color: #d8c18a;
+}
+
+.input-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+input {
+  flex: 1;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f9f3df;
+}
+
+input::placeholder {
+  color: rgba(249, 243, 222, 0.65);
+}
+
+button {
+  padding: 14px 18px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f5b32f, #f85a1d);
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(248, 90, 29, 0.25);
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #ffd75a, #ff7a2f);
+}
+
+.error {
+  margin-bottom: 16px;
+  color: #ffd7ac;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.items-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.items-panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+  color: #ffe18b;
+}
+
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.item-list li span {
+  color: #f9f3df;
+}
+
+.item-list button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffcb3b;
+  box-shadow: none;
+}
+
+.item-list button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
