@@ -28,7 +28,7 @@ jobs:
       - name: Executar testes
         run: npm run test:backend
     
-    frontend-tests: #Configura a máquina, copia o código, instala dependencias e roda o teste do frontend
+  frontend-tests: #Configura a máquina, copia o código, instala dependencias e roda o teste do frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
