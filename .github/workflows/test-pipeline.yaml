@@ -1,0 +1,45 @@
+# CI Completa - Trabalho de Conclusão
+
+name: Pipeline - Testes Backend e Frontend
+
+on:
+  workflow_dispatch: #Execução manual
+
+  push:
+    branches: [ main ] #Execução em push para a branch main
+
+  schedule:
+    - cron: '*/10 * * * *' # Execução agendada
+
+jobs:
+  backend-tests: #Configura a máquina, copia o código, instala dependencias e roda o teste do backend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar testes
+        run: npm run test:backend
+    
+    frontend-tests: #Configura a máquina, copia o código, instala dependencias e roda o teste do frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar testes
+        run: npm run test:frontend
