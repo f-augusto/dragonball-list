@@ -27,6 +27,14 @@ jobs:
 
       - name: Executar testes
         run: npm run test:backend
+      
+      - name: Publicar resultados de teste
+        if: always() # Garante que os resultados sejam publicados mesmo se os testes falharem
+        uses: dorny/test-reporter@v2
+        with:
+          name: backend-test-results
+          path: backend/test-results/backend-junit.xml
+          reporter: java-junit
     
   frontend-tests: #Configura a máquina, copia o código, instala dependencias e roda o teste do frontend
     runs-on: ubuntu-latest
@@ -43,3 +51,11 @@ jobs:
 
       - name: Executar testes
         run: npm run test:frontend
+      
+      - name: Publicar resultados de teste
+        if: always() # Garante que os resultados sejam publicados mesmo se os testes falharem
+        uses: dorny/test-reporter@v2
+        with:
+          name: frontend-test-results
+          path: frontend/test-results/frontend-junit.xml
+          reporter: java-junit
