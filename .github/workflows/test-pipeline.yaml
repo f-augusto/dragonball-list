@@ -12,64 +12,48 @@ on:
     - cron: '*/10 * * * *' # Execução agendada
 
 jobs:
-  backend-tests: #Configura a máquina, copia o código, instala dependencias e roda o teste do backend
+  tests:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        app:
+          - name: backend
+            test: test:backend
+            junit: backend/test-results/backend-junit.xml
+            coverage: backend/coverage
+
+          - name: frontend
+            test: test:frontend
+            junit: frontend/test-results/frontend-junit.xml
+            coverage: frontend/coverage
+
     steps:
-      - uses: actions/checkout@v5 #Atualizado pro Node24 - Retirar warning
+      - name: Checkout do código
+        uses: actions/checkout@v5 #Atualizado pro Node24 - Retirar warning
 
       - name: Configurar Node.js
         uses: actions/setup-node@v6 #Atualizado pro Node24 - Retirar warning
         with:
           node-version: 24.x
-
+      
       - name: Instalar dependências
         run: npm ci #Roda mais rápido por usar o -lock e evita conflito de versões
 
-      - name: Executar testes
-        run: npm run test:backend
+      - name: Executar testes (${{ matrix.app.name }})
+        run: npm run ${{ matrix.app.test }}
       
       - name: Publicar resultados de teste
         if: always() # Garante que os resultados sejam publicados mesmo se os testes falharem
         uses: dorny/test-reporter@v2
         with:
-          name: backend-test-results
-          path: backend/test-results/backend-junit.xml
+          name: ${{ matrix.app.name }}-test-results
+          path: ${{ matrix.app.junit }}
           reporter: java-junit
       
       - name: Salvando coverage
         if: always() # Garante que a cobertura seja salva mesmo se os testes falharem
         uses: actions/upload-artifact@v4
         with:
-          path: backend/coverage
-          name: backend-coverage
-    
-  frontend-tests: #Configura a máquina, copia o código, instala dependencias e roda o teste do frontend
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5 #Atualizado pro Node24 - Retirar warning
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v6 #Atualizado pro Node24 - Retirar warning
-        with:
-          node-version: 24.x
-
-      - name: Instalar dependências
-        run: npm ci #Roda mais rápido por usar o -lock e evita conflito de versões
-
-      - name: Executar testes
-        run: npm run test:frontend
-      
-      - name: Publicar resultados de teste
-        if: always() # Garante que os resultados sejam publicados mesmo se os testes falharem
-        uses: dorny/test-reporter@v2
-        with:
-          name: frontend-test-results
-          path: frontend/test-results/frontend-junit.xml
-          reporter: java-junit
-      
-      - name: Salvando coverage
-        if: always() # Garante que a cobertura seja salva mesmo se os testes falharem
-        uses: actions/upload-artifact@v4
-        with:
-          path: frontend/coverage
-          name: frontend-coverage
+          path: ${{ matrix.app.coverage }}
+          name: ${{ matrix.app.name }}-coverage
