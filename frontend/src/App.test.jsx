@@ -3,7 +3,7 @@ import App from './App';
 
 const mockItems = [
   { id: '1', name: 'Leite' },
-  { id: '2', name: 'Pão' }
+  { id: '2', name: 'Pão' },
 ];
 
 beforeEach(() => {
@@ -14,7 +14,7 @@ beforeEach(() => {
     if (url.endsWith('/items') && options?.method === 'POST') {
       return Promise.resolve({
         ok: true,
-        json: () => Promise.resolve({ id: '3', name: JSON.parse(options.body).name })
+        json: () => Promise.resolve({ id: '3', name: JSON.parse(options.body).name }),
       });
     }
     if (url.includes('/items/') && options?.method === 'DELETE') {

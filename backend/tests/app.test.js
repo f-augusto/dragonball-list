@@ -11,9 +11,7 @@ describe('Backend de lista de compras', () => {
   });
 
   it('adiciona um item novo', async () => {
-    const response = await request(app)
-      .post('/items')
-      .send({ name: 'Esfera do Dragão' });
+    const response = await request(app).post('/items').send({ name: 'Esfera do Dragão' });
 
     expect(response.status).toBe(201);
     expect(response.body).toHaveProperty('id');
@@ -21,9 +19,7 @@ describe('Backend de lista de compras', () => {
   });
 
   it('remove um item existente', async () => {
-    const createResponse = await request(app)
-      .post('/items')
-      .send({ name: 'Senzu Bean' });
+    const createResponse = await request(app).post('/items').send({ name: 'Senzu Bean' });
 
     const itemId = createResponse.body.id;
     const deleteResponse = await request(app).delete(`/items/${itemId}`);

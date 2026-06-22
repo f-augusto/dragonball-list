@@ -8,7 +8,7 @@ app.use(express.json());
 
 const items = [
   { id: randomUUID(), name: 'Senzu Bean' },
-  { id: randomUUID(), name: 'Esfera do Dragão' }
+  { id: randomUUID(), name: 'Esfera do Dragão' },
 ];
 
 app.get('/items', (req, res) => {
@@ -27,7 +27,7 @@ app.post('/items', (req, res) => {
 
   const item = {
     id: randomUUID(),
-    name: name.toString().trim()
+    name: name.toString().trim(),
   };
   items.push(item);
   res.status(201).json(item);

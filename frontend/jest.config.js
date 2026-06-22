@@ -1,7 +1,7 @@
 module.exports = {
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.[t|j]sx?$': 'babel-jest'
+    '^.+\\.[t|j]sx?$': 'babel-jest',
   },
   moduleFileExtensions: ['js', 'jsx'],
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
@@ -11,8 +11,8 @@ module.exports = {
       'jest-junit',
       {
         outputDirectory: 'test-results',
-        outputName: 'frontend-junit.xml'
-      }
-    ]
-  ]
+        outputName: 'frontend-junit.xml',
+      },
+    ],
+  ],
 };

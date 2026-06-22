@@ -1,4 +1,5 @@
 # Shopping List App
+
 App simples de lista de compras com backend Node.js, frontend React/Vite e testes com Jest e Playwright.
 
 ## Pipeline de CI
@@ -11,6 +12,10 @@ Esta aplicação usa uma pipeline de CI com as seguintes caracteristicas:
   - Executa a cada push na main
   - Executa semanalmente
   - Executa manualmente
+
+- Inspeção de Código (Lint + Prettier):
+  - Realiza análise estática do código buscando erros de padrões
+  - Auxilia a manter as convenções do projeto, padronizar e melhorar a qualidade do código
 
 - Testes unitários (Jest)
   - Roda primeiro para ter feedback rápido
@@ -27,7 +32,7 @@ Esta aplicação usa uma pipeline de CI com as seguintes caracteristicas:
 - Deploy
   - Após todos os testes finalizarem é realizado o deploy (ficticio)
 
-- Evoluções 
+- Evoluções
   - Quando a suite E2E aumentar o ideal é ter tag de @smoke para não travar o deploy
 
 ## Requisitos

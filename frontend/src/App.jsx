@@ -23,7 +23,7 @@ function App() {
     const response = await fetch(`${API_URL}/items`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: newItem })
+      body: JSON.stringify({ name: newItem }),
     });
 
     if (!response.ok) {
@@ -39,7 +39,7 @@ function App() {
 
   const removeItem = async (id) => {
     const response = await fetch(`${API_URL}/items/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
     });
 
     if (response.ok) {
