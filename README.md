@@ -12,6 +12,7 @@ Esta aplicação usa uma pipeline de CI com as seguintes caracteristicas:
   - Executa a cada push na main
   - Executa semanalmente
   - Executa manualmente
+  - Exemplo de Pipeline Self-Hosted para casos que é necessário estar no ambiente interno (local ou nuvem)
 
 - Atualizar variáveis de ambiente:
   - Cria um .env ficticio para mostrar o uso de Secrets
