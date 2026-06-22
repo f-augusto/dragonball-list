@@ -1,6 +1,34 @@
 # Shopping List App
-
 App simples de lista de compras com backend Node.js, frontend React/Vite e testes com Jest e Playwright.
+
+## Pipeline de CI
+
+Esta aplicação usa uma pipeline de CI com as seguintes caracteristicas:
+
+- Objetivo: Execução de testes pré-deploy
+
+- Execuções (GH Actions):
+  - Executa a cada push na main
+  - Executa semanalmente
+  - Executa manualmente
+
+- Testes unitários (Jest)
+  - Roda primeiro para ter feedback rápido
+  - Utiliza estratégia de matriz para evitar duplicidade de passos e melhorar paralelismo
+  - Publica os resultados utilizando uma Action para exibir detalhes do resultado
+  - Gera artefatos do coverage
+
+- Teste E2E (Playwright)
+  - Executa após os unitários
+  - Inicia os servidores de frontend e backend como pré-requisito dos testes
+  - Publica os resultados jUnit
+  - Salva o .html gerado nos artefatos
+
+- Deploy
+  - Após todos os testes finalizarem é realizado o deploy (ficticio)
+
+- Evoluções 
+  - Quando a suite E2E aumentar o ideal é ter tag de @smoke para não travar o deploy
 
 ## Requisitos
 
