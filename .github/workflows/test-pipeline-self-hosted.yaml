@@ -1,6 +1,6 @@
 # CI Completa - Trabalho de Conclusão
 
-name: Pipeline - Testes Backend e Frontend
+name: Pipeline Self-Hosted - Testes Backend e Frontend
 
 on:
   workflow_dispatch: #Execução manual
