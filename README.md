@@ -117,6 +117,8 @@ app/
 
 ## Executar
 
+0. Crie o arquivo .env seguindo o .env.example utilizando o personagem correto
+
 1. Inicie o backend:
 
 ```bash
