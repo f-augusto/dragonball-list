@@ -126,4 +126,4 @@ jobs:
         with:
           path: e2e-test-report
         
-        uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v4
