@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { randomUUID } = require('crypto');
+const config = require('./config');
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,10 @@ app.get('/items', (req, res) => {
 
 app.get('/health', (req, res) => {
   res.sendStatus(200);
+});
+
+app.get('/character', (req, res) => {
+  res.json({ character: config.character });
 });
 
 app.post('/items', (req, res) => {

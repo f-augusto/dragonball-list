@@ -31,4 +31,11 @@ describe('Backend de lista de compras', () => {
     const response = await request(app).get('/health');
     expect(response.status).toBe(200);
   });
+
+  it('retorna o personagem configurado', async () => {
+    const response = await request(app).get('/character');
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('character');
+    expect(response.body.character).toBe('Goku');
+  });
 });
