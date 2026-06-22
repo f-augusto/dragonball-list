@@ -15,7 +15,7 @@ describe('Backend de lista de compras', () => {
 
     expect(response.status).toBe(201);
     expect(response.body).toHaveProperty('id');
-    expect(response.body.name).toBe('Esferas dos Dragão');
+    expect(response.body.name).toBe('Esfera do Dragão');
   });
 
   it('remove um item existente', async () => {
