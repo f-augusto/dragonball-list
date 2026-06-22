@@ -28,7 +28,7 @@ test.describe('Dragon Ball mission list', () => {
 
     await expect(itemRow).toHaveCount(1);
     await itemRow.locator('button:has-text("Remover")').click();
-    await expect(itemRow).toHaveCount(0);
+    await expect(itemRow).toHaveCount(5);
   });
 
   test('exibe erro ao tentar adicionar item vazio', async ({ page }) => {

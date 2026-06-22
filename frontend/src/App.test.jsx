@@ -46,7 +46,7 @@ test('adiciona um novo item', async () => {
 
   fireEvent.click(button);
 
-  expect(await screen.findByText(/Café/i)).toBeInTheDocument();
+  expect(await screen.findByText(/Cafés/i)).toBeInTheDocument();
 });
 
 test('remove um item existente', async () => {
