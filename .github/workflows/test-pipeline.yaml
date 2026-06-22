@@ -122,7 +122,7 @@ jobs:
         uses: actions/configure-pages@v5 
 
       - name: Publicar relatório de teste E2E no GitHub
-        usess: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3
         with:
           path: e2e-test-report
         
