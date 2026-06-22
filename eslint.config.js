@@ -1,12 +1,6 @@
 module.exports = [
   {
-    ignores: [
-      'node_modules/**',
-      'coverage/**',
-      '**/coverage/**',
-      '**/test-results/**',
-      '.DS_Store',
-    ],
+    ignores: ['node_modules/**', 'coverage/**', '**/test-results/**', '.DS_Store'],
     languageOptions: {
       parserOptions: {
         ecmaVersion: 'latest',
@@ -15,12 +9,18 @@ module.exports = [
           jsx: true,
         },
       },
-    },
-    env: {
-      browser: true,
-      node: true,
-      es2024: true,
-      jest: true,
+      globals: {
+        process: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        console: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        test: 'readonly',
+        expect: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+      },
     },
     plugins: {
       react: require('eslint-plugin-react'),
@@ -30,7 +30,6 @@ module.exports = [
         version: 'detect',
       },
     },
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
     rules: {
       'react/react-in-jsx-scope': 'off',
     },

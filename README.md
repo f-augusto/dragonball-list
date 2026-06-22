@@ -13,6 +13,10 @@ Esta aplicação usa uma pipeline de CI com as seguintes caracteristicas:
   - Executa semanalmente
   - Executa manualmente
 
+- Atualizar variáveis de ambiente:
+  - Cria um .env ficticio para mostrar o uso de Secrets
+  - Para aplicações é importante deixar senhas e tokens fora do código
+
 - Inspeção de Código (Lint + Prettier):
   - Realiza análise estática do código buscando erros de padrões
   - Auxilia a manter as convenções do projeto, padronizar e melhorar a qualidade do código

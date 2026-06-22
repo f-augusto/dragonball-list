@@ -12,6 +12,19 @@ on:
     - cron: '0 3 * * 1' #Execução semanal toda segunda-feira às 3h da manhã (UTC)
 
 jobs:
+  criar-.env:
+    runs-on: ubuntu-latest
+
+    uses: actions/checkout@v4
+
+    steps:
+      - name: Criar arquivo .env
+        run: |
+          echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
+
+      - name: Verificar conteúdo do .env
+        run: cat .env
+
   inspecao:
     runs-on: ubuntu-latest
 
